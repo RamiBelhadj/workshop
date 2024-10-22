@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+    </head>
+    <body>
+        <h1>Books item</h1>
+        <a href = "/books/new">Add new Item</a>
+        <ul>
+            <% items.forEach (book => { %>
+            <li>
+                <a href = "/books/<%= book._id %>"> <%= book.title %> </a>
+                <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            <% }) %>
+        </ul>
+    </body>
+</html>
